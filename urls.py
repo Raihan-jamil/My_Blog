@@ -1,11 +1,10 @@
+from django.urls import path
+from App_Blog import views
 
-from django.contrib import admin
-from django.urls import path, include
-from . import views
+app_name = 'App_Blog'
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('account/', include('App_Login.urls')),
-    path('blog/', include('App_Blog.urls')),
-   path('', views.Index, name='index')
+  path('', views.blog_list, name='blog_list')
+  path('write/', views.createBlog.as_view(), name='create_blog'),
 
 ]
